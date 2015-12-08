@@ -23,11 +23,8 @@
     "prefix": "$",
     "server": "irc.snoonet.org",
     "ssl": false,
-<<<<<<< HEAD
     "stopped": [],
     "timeout": 60,
-    "watch": {}
-=======
+    "watch": {},
     "timeout": 60
->>>>>>> upstream/master
   }

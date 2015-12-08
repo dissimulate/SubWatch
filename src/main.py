@@ -9,10 +9,6 @@ if __name__ == "__main__":
 
     # bot.debug = True
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
     def signal_handler(signal, frame):
 
         print('\nShutting down...')
@@ -44,7 +40,6 @@ if __name__ == "__main__":
         elif line == 'dc':
 
             bot.disconnect()
-<<<<<<< HEAD
 
         elif line == 'grow':
 
@@ -53,5 +48,3 @@ if __name__ == "__main__":
         elif line == 'shrink':
 
             bot.shrink_threads()
-=======
->>>>>>> upstream/master
