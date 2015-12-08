@@ -49,6 +49,7 @@ class DissBot():
     perms_check = []
     
 
+
     def __init__(self):
 
         if not self.load():
@@ -264,6 +265,34 @@ class DissBot():
 
                     for func in self.commands[command]:
 
+                        # must be performed in specific channel
+
+                        if hasattr(func, '_channel'):
+
+                            if getattr(func, '_channel') != chan:
+
+                                continue
+
+                        # command can or must be diverted
+
+                        where = chan
+
+                        divert = bot.config.get('divert', {})
+
+                        if hasattr(func, '_divert') or hasattr(func, '_control'):
+
+                            if chan in redirect:
+
+                                where = divert[chan]
+
+                            elif hasattr(func, '_control'):
+
+                                continue
+
+                            if where not in self.chans:
+
+                                continue
+
                         # admin perm overrides all
 
                         admin = self.config['perms'].get('admin', {})
@@ -272,7 +301,7 @@ class DissBot():
 
                             pass
 
-                        # perms override flags
+                        # user must have permission, overrides flags
 
                         elif hasattr(func, '_perm'):
 
@@ -286,7 +315,7 @@ class DissBot():
 
                                 continue
 
-                        # check required flags
+                        # user must have specific flag(s)
 
                         elif hasattr(func, '_flags'):
 
@@ -294,15 +323,15 @@ class DissBot():
                                 'nick': nick,
                                 'func': func,
                                 'perm': getattr(func, '_flags'),
-                                'chan': chan,
-                                'args': ((nick, ident, host), chan, params)
+                                'chan': where,
+                                'args': ((nick, ident, host), where, params)
                             })
 
-                            self.do('WHO', chan)
+                            self.do('WHO', where)
 
                             continue
 
-                        self.thread(func, args=((nick, ident, host), chan, params))
+                        self.thread(func, args=((nick, ident, host), where, params))
 
         print('Exited parse loop.')
 

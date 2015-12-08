@@ -26,5 +26,6 @@
     "stopped": [],
     "timeout": 60,
     "watch": {},
-    "timeout": 60
+    "timeout": 60,
+    "divert": {}
   }

@@ -5,6 +5,22 @@ import time
 import threading
 import style
 
+@hook.command('divert', perm='admin')
+def divert(prefix, chan, params):
+
+    bot.config.get('divert', {})[params[0]] = params[1]
+
+    bot.save()
+
+    
+@hook.command('undivert', perm='admin')
+def undivert(prefix, chan, params):
+
+    del bot.config.get('divert', {}).get(params[0])
+
+    bot.save()
+
+
 @hook.command('say', perm='admin')
 def say(prefix, chan, params):
 
@@ -16,7 +32,7 @@ def announce(prefix, chan, params):
 
     for ch in bot.chans:
 
-        bot.say(ch, '%s: %s' % (style.color('Announcement', style.RED), ' '.join(params)))
+        bot.say(ch, '%s: %s' % (style.color('Ann', style.RED), ' '.join(params)))
 
 
 @hook.command('act', perm='admin')
