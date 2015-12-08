@@ -4,3 +4,5 @@
 src/config.test.json
 
 src/config.json
+
+src/praw.ini
