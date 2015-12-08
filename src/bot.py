@@ -47,6 +47,7 @@ class DissBot():
     flood_check = {}
 
     perms_check = []
+    
 
     def __init__(self):
 
