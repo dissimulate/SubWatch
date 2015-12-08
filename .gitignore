@@ -1,0 +1,6 @@
+
+*.pyc
+
+src/config.test.json
+
+src/config.json

@@ -1,0 +1,27 @@
+{
+    "chans": [],
+    "flood_delay": 0.6,
+    "flood_limit": 8,
+    "ident": "",
+    "ignore": [],
+    "ipv6": false,
+    "log": "##logchannel",
+    "nick": "",
+    "oper": false,
+    "oper_name": "",
+    "oper_pass": "",
+    "pass": "",
+    "perms": {
+        "admin": [
+            "*!*@snoonet/community-admin/diss"
+        ],
+        "staff": [
+            "*!*@snoonet/"
+        ]
+    },
+    "port": 6667,
+    "prefix": "$",
+    "server": "irc.snoonet.org",
+    "ssl": false,
+    "timeout": 60
+  }
