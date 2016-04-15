@@ -160,12 +160,13 @@ def get_submissions(num):
 
                 prefix = 'Self post:' if thread.is_self else 'Link post:'
 
-                message = '%s "%s" posted in /r/%s by %s. %s%s' % (
+                message = '%s "%s" posted in /r/%s by %s. ( %s )%s%s' % (
                     style.color(prefix, style.GREEN),
                     thread.title,
                     sub,
                     thread.author,
                     thread.short_link,
+                    '' if thread.is_self else (' [ %s ]' % thread.url),
                     style.color(' NSFW', style.RED) if thread.over_18 else ''
                 )
 
